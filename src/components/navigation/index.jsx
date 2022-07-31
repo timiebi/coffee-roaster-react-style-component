@@ -23,10 +23,10 @@ export const Nav = ({logophoto, togglebtn, Name, logo})=>{
                     <ImageStr source={logophoto} alt={Name} cl='logo' />
                     <button style={{border: 'none', backgroundColor: '#fff'}} onClick={Handclick} > <ImageStr source={togglebtn} alt={Name} cl='toggltbtn' /></button>
                 </LOGOHAMBURGER>
-                <NAVCONTENT>
-                    {toggle &&(
+                {toggle &&( <NAVCONTENT>
+                    
                         <UL>
-                        <Link to='/' className="link">
+                        <Link to='/home' className="link">
                             <LI>
                                 Home
                             </LI>
@@ -42,7 +42,9 @@ export const Nav = ({logophoto, togglebtn, Name, logo})=>{
                             </LI>
                         </Link>
                     </UL>
+                </NAVCONTENT>  
                     )}
+                <NAVCONTENT2>
                     <ULDSKTP>
                         <Link to='/' className="link">
                             <DESKLIST>
@@ -60,7 +62,7 @@ export const Nav = ({logophoto, togglebtn, Name, logo})=>{
                             </DESKLIST>
                         </Link>
                     </ULDSKTP>
-                </NAVCONTENT>
+                </NAVCONTENT2>
             </NAVCONTAINER>
         </>
     )
@@ -73,6 +75,7 @@ export const Nav = ({logophoto, togglebtn, Name, logo})=>{
 
 export const NAVCONTAINER = styled.div`
 /* background: #999494; */
+ /* border: 2px solid red; */
 
 @media(min-width: 773px){
         display: flex;
@@ -82,29 +85,25 @@ export const NAVCONTAINER = styled.div`
         background-color: #fff;
         position: fixed;
         top: 0;
+        /* border: 2px solid red; */
+        padding: 1.2em;
     }
     
 `
 // toggle nav list 
 export const NAVCONTENT = styled.div`
+    position: absolute;
     height: 100vh;
     top: 5rem;
     right: 0;
     left: 0;
     z-index: 3;
-    background-image: linear-gradient(rgb(255,255,255, 1), rgb(255,255,255,0.2));
+    background-image: linear-gradient(rgb(255,255,255, 1), rgb(255,255,255,0.85));
     /* border: 2px solid red; */
     width: 100%;
     transition: 0.5s ease-in-out;
 
-    @media(min-width: 773px){
-       height: fit-content;
-       transition: 0.5s ease-in-out;
-       width: 30%;
-       padding: 1em;
-       margin-right: 5em;
-       background: #fff;
-    }
+   
    
 `
 
@@ -179,6 +178,28 @@ export const LOGOHAMBURGER = styled.div`
 
 
 /* desktop nav */
+
+export const NAVCONTENT2 = styled.div`
+     @media(min-width: 773px){
+       height: fit-content;
+       transition: 0.5s ease-in-out;
+       width: 40%;
+       padding: 1em;
+       margin-right: 1em;
+       background: #fff;
+       /* border: 2px solid red; */
+    }
+
+    @media(max-width: 1020px){
+        padding: 0;
+        margin-right: 0;
+        /* width: 45%; */
+    }
+    @media(min-width: 1440px){
+        margin-right: 2em;
+        width: 30%;
+    }
+`
 export const ULDSKTP = styled.ul`
     display: none;
     
@@ -190,6 +211,12 @@ export const ULDSKTP = styled.ul`
         transition: 0.5s ease-in-out;
     }
 
+    /* tab */
+    @media(max-width: 1020px){
+        width: 100%;
+        /* border: 2px solid red; */
+    }
+
     .link{
         text-decoration: none;
     }
@@ -198,7 +225,8 @@ export const ULDSKTP = styled.ul`
 export const DESKLIST = styled.li`
     text-decoration: none;
     list-style: none;
-    font-size: 0.7rem;
+    font-size: .95rem;
+    font-weight: bold;
      transition: 0.5s ease-in-out;
      color: #83888f;
 
