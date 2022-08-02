@@ -11,7 +11,7 @@ export const CreatePlanButton = ()=>{
 
 
 export const Button = styled.button`
-    padding: .85em 1.5em;
+    padding: .75em 1.2em;
     border: none;
     background-color: #0e8784;
     border-radius: 10px;

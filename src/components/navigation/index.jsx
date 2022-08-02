@@ -76,6 +76,12 @@ export const Nav = ({logophoto, togglebtn, Name, logo})=>{
 export const NAVCONTAINER = styled.div`
 /* background: #999494; */
  /* border: 2px solid red; */
+        width: 100%;
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        /* padding: .5em; */
+        z-index: 100;
 
 @media(min-width: 773px){
         display: flex;
@@ -84,9 +90,11 @@ export const NAVCONTAINER = styled.div`
         width: 100%;
         background-color: #fff;
         position: fixed;
+        z-index: 100;
         top: 0;
         /* border: 2px solid red; */
-        padding: 1.2em;
+        padding: .5em;
+        transition: 0.5s ease-in-out;
     }
     
 `
@@ -192,7 +200,7 @@ export const NAVCONTENT2 = styled.div`
 
     @media(max-width: 1020px){
         padding: 0;
-        margin-right: 0;
+        margin-right: 1em;
         /* width: 45%; */
     }
     @media(min-width: 1440px){

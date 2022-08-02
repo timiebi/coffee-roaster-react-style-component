@@ -34,8 +34,8 @@ export const HomeCreatePlanSection = ()=>{
 export const PLANSECTION = styled.div`
     background: url(${planImage});
     width: 90%;
-    margin: 1.5em auto 7.5em 1.28em;
-    padding: 6.25em 1.5em 7.25em 1.5em;
+    margin: 5.5em auto 7.5em 1.2em;
+    padding: 6.25em 1.5em 6.25em 1.5em;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -52,7 +52,8 @@ export const PLANSECTION = styled.div`
     }
 
     @media(min-width: 773px){
-        background: url(${planImagetab});
+        
+        background: url(${pimagedesk});
         width: 90%;
         background-size: cover;
         background-repeat: no-repeat;
@@ -61,19 +62,19 @@ export const PLANSECTION = styled.div`
         text-align: left;
         margin-top: 8em;
         margin-bottom: 6em;
-        margin-left: 3em;
+        margin-left: 2.7em;
         /* check the padding again after the button */
-        padding: 7em 20em 6.5em 1em;
+        padding: 6em 20em 5.5em 1em;
         transition: all 0.5s ease-in-out;
     }
 
     @media(min-width: 1440px){
-        background: url(${pimagedesk});
+        background: url(${planImagetab});
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         padding: 7.8em 50em 7.8em 3.5em;
-        margin-left: 4em;
+        margin-left: 4.4em;
         transition: all 0.5s ease-in-out;
     }
    
@@ -106,7 +107,7 @@ export const H1 = styled.h1`
     }
 
     @media(min-width: 775px){
-        font-size: 3rem;
+        /* font-size: 3rem; */
         line-height: 50px;
         max-width: 1180px;
         margin-left: 0;
@@ -114,14 +115,14 @@ export const H1 = styled.h1`
 `
 
 export const PPARAGRAPH = styled.div`
-     /* max-width:445px; */
-     text-align: center;
+     /* max-width: 90%; */
      /* border: 2px solid red; */
 `
 
 
 export const PP = styled.p`
     margin: 0 auto 2em;
+    text-align: center;
     font-size: 1rem;
     line-height: 1.5rem;
     color: #fefcf7;
@@ -130,20 +131,23 @@ export const PP = styled.p`
     
     @media(min-width: 553px){
         /* max-width: 270px; */
+        font-size: .9rem;
          max-width:445px;
         text-align: center;
         margin: 0 auto 2em;
+        transition: all 0.5s ease-in-out;
     }
 
     @media(min-width: 775px){
-        max-width: 90%;
-        margin-left: 0;
+        max-width: 70%;
+        margin-right: 14.5em;
         text-align: left;
+        transition: all 0.5s ease-in-out;
     }
 `
 
 export const BUTTON = styled.div`
-    margin: 2em 0 0 2.5em;
+    margin: 2em 0 0 2em;
     transition: all 0.5s ease-in-out;
 
     @media(min-width: 553px){
@@ -151,6 +155,6 @@ export const BUTTON = styled.div`
     }
 
     @media(min-width: 775px){
-        margin-left: 0;
+        margin-left: 1.5em;
     }
 `
