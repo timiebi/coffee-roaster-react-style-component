@@ -80,7 +80,7 @@ export const NAVCONTAINER = styled.div`
         background-color: #fff;
         position: fixed;
         top: 0;
-        /* padding: .5em; */
+        padding: .5em;
         z-index: 100;
 
 @media(min-width: 773px){

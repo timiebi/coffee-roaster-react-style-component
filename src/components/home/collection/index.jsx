@@ -168,7 +168,7 @@ export const HEADPA = styled.div`
      align-items: center;
      justify-content: center;
      width: 90%;
-     margin-left: 1.5em;
+     /* margin-left: 1.5em; */
      transition: all .5s ease-in-out;
 
      @media(min-width: 773px){
