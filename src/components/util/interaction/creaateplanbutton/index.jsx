@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const CreatePlanButton = ()=>{
     return(
         <>
-            <Button>Create your plan</Button>
+           <Link to='/'>
+                <Button>Create your plan</Button>
+           </Link>
         </>
     )
 }

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { ImageStr } from "../../util/image";
 
 // Assets 
+import '../../../App.css';
 
 
 
@@ -27,7 +28,7 @@ export const WhyUs = ({wphoto, icong, truck})=>{
                                     <ImageStr source={wphoto} height='70px'/>
                                 </IMAGEBEAN>
                                 <HEADERPA>
-                                    <BH3 style={{left: '1.5em', position: 'relative'}} >
+                                    <BH3 className="fr"  >
                                         Best quality
                                     </BH3>
                                     <BP>
@@ -59,7 +60,7 @@ export const WhyUs = ({wphoto, icong, truck})=>{
                                         <ImageStr source={truck} height='70px'/>
                                     </IMAGEBEAN>
                                     <HEADERPA >
-                                        <BH3 style={{left: '1.2em', position: 'relative'}}>
+                                        <BH3 className="fr">
                                             Free shipping
                                         </BH3>
                                         <BP>
@@ -177,7 +178,7 @@ export const SECTIONZ = styled.div`
         @media(min-width: 1440px){
             transition: all .5s ease-in-out;
             width: 22em;
-            margin-right: 1.2em;
+            margin-right: 1em;
         }
 
 `
@@ -240,6 +241,7 @@ export const BP = styled.p`
             padding: 0;
             margin: auto;
             transition: all .5s ease-in-out;
+           
         }
         @media(min-width: 1020px){
             padding: 2em 2em 1.8em;
@@ -247,5 +249,8 @@ export const BP = styled.p`
             transition: all .5s ease-in-out;
             text-align: center;
             right: .8em;
+          
         }
+
+        
 `
