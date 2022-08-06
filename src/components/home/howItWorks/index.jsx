@@ -9,8 +9,10 @@ export const HowItWorks = ()=>{          // will work on this with an api
        
             <HOWITWORKS>
                 <WH2>How it Works</WH2>
+               
                 <OL>
                     <LII>
+                    <CIRCLE></CIRCLE>
                         <H33>
                             Pick your coffee
                         </H33>
@@ -21,6 +23,7 @@ export const HowItWorks = ()=>{          // will work on this with an api
                         </P11>
                     </LII>
                     <LII>
+                    <CIRCLE className='c_circle'></CIRCLE>
                         <H33>
                             Pick your coffee
                         </H33>
@@ -31,6 +34,7 @@ export const HowItWorks = ()=>{          // will work on this with an api
                         </P11>
                     </LII>
                     <LII>
+                    <CIRCLE className='h_line-cross'></CIRCLE>
                         <H33>
                             Pick your coffee
                         </H33>
@@ -77,19 +81,18 @@ export const WH2 = styled.h2`
 
 
 export const OL = styled.ol`
-    /* margin-top: 6em; */
     transition: all .5s ease-in-out;
-    /* border: 2px solid red; */
     position: relative;
     width: 90%;
     left: 0;
     right: 0;
     margin: auto;
-    /* margin-right: 1em; */
     @media(min-width: 773px){
         display: flex;
         align-items: center;
+        margin-left: 1.5em;
         transition: all .5s ease-in-out;
+        margin-top: 5em;
     }
 
     @media(min-width: 1020px){
@@ -107,12 +110,42 @@ export const LII = styled.li`
     margin-top: 3.5em;
     transition: all .5s ease-in-out;
     width: 20em;
-    /* margin-left: em; */
     list-style: none;
     left: 0;
     right: 0;
     margin: 3.5em auto auto auto;
-    /* margin: auto; */
+
+    .c_circle{
+        z-index: 1;
+    }
+
+    .h_line-cross{
+        display: none;
+   @media(min-width: 773px){
+    display: block;
+      
+    &::after{
+         content: '';
+     position: absolute;
+     width: 56vw;
+     right: 2em;
+     top: .8em;
+     border: 2px solid #fdd6ba;
+     }
+   }
+   @media(min-width: 1020px){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      
+    &::after{
+         content: '';
+     position: absolute;
+     width: 50vw;
+     transition: all .5s ease-in-out;
+     }
+   }
+ }
 
 
         &::after{
@@ -126,9 +159,17 @@ export const LII = styled.li`
             padding-left: 1.5em;
             width: 200px;
             padding-bottom: 3em;
-            /* border: 2px solid red; */
+
+            @media (min-width: 773px){
+              left: -.9em;
+            transition: all .5s ease-in-out;
         }
     
+        }
+        @media (min-width: 773px){
+            margin-right: 2em;
+        }
+        
 `
 
 export const H33 = styled.h3`
@@ -139,7 +180,6 @@ export const H33 = styled.h3`
     color: #2C343E;
     padding-top: 3.5em;
     transition: all .5s ease-in-out;
-    /* border: 2px solid red; */
     
 `
 
@@ -183,3 +223,30 @@ export const BUTTONSTY = styled.div`
 `
 
 
+
+
+// CIRCLE STYLE ON HOME SECTION(HOW IT WORKS)
+export const CIRCLE= styled.div`
+display: none;
+    @media(min-width: 773px){
+    display: block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #0e8784;
+    background: #fefcf7;
+    position: absolute;
+    left: 4em;
+    bottom: 22em;
+    transition: all .5s ease-in-out;
+    }
+    @media(min-width: 1020px){
+        bottom: 25em;
+        transition: all .5s ease-in-out;
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+
+`

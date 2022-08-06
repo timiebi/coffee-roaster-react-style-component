@@ -35,6 +35,11 @@ export const HomeFooter = ({footerIcon})=>{
                                 </FOOTERLIST>
                             </Link>
                         </FOOTERNAV>
+                        <FICON>
+                            <ImageStr cl='icon' source={faceB}/>
+                            <ImageStr cl='icon' source={twitter}/>
+                            <ImageStr cl='icon' source={instagrm}/>
+                        </FICON>
                     </FCONTENT>
                 </HFCONTAINER>
             </HOMEFOOTER>
@@ -92,7 +97,6 @@ export const FOOTERNAV = styled.ul`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 3em;
     transition: all .5s ease-in-out;
     .link{
         color: #83888f;
@@ -109,4 +113,34 @@ export const FOOTERLIST = styled.li`
      transition: all .5s ease-in-out;
      list-style: none;
      padding: 1em;
+`
+
+
+// social icons
+
+export const FICON = styled.div`
+    margin-top: 3em;
+    margin-left: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s ease-in-out;
+
+    @media(min-width: 1020px){
+        margin: 1em;
+        transition: all .5s ease-in-out;
+    }
+
+    .icon{
+
+        margin: .8em;
+        &:hover{
+        cursor: pointer;
+        transform: translateY(-15px);
+        transition: all .5s ease-in-out;
+        
+    }
+    }
+
+  
 `

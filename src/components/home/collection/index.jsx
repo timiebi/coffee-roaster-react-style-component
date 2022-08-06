@@ -60,7 +60,7 @@ export const Collection =({bagphoto})=>{
                 <COLLECTIONLISTCONTAINER>
                     <LISTCONTENT>
                         <BAGIMAGE>
-                            <ImageStr source={bagphoto} width='  50%'/>
+                            <ImageStr source={bagphoto} width='  200px'/>
                         </BAGIMAGE>
                        <HEADPA>
                             <H3>
