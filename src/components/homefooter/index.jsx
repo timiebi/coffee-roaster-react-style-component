@@ -1,22 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ImageStr } from '../../util/image';
+import { ImageStr } from '../util/image';
 import { Link } from 'react-router-dom';
-import faceB from '../../../resources/shared/desktop/fb.svg';
-import twitter from '../../../resources/shared/desktop/twiiter.svg';
-import instagrm from '../../../resources/shared/desktop/insta.svg';
+import faceB from '../../resources/shared/desktop/fb.svg'
+import twitter from '../../resources/shared/desktop/twiiter.svg'
+import instagrm from '../../resources/shared/desktop/insta.svg';
+import logo from '../../resources/shared/desktop/logo.svg';
 
 
 
 
-export const HomeFooter = ({footerIcon})=>{
+export const HomeFooter = ()=>{
     return(
         <>
             <HOMEFOOTER>
                 <HFCONTAINER>
                     <FCONTENT>
                         <FOOTERLOGO>
-                            <ImageStr source={footerIcon} />
+                            <ImageStr source={logo} />
                         </FOOTERLOGO>
                         <FOOTERNAV>
                             <Link to='/' className="link">

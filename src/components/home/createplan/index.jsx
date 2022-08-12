@@ -18,7 +18,7 @@ export const HomeCreatePlanSection = ()=>{
                 </PHEADER>
                 <PPARAGRAPH>
                     <PP> Start your mornings with the world's best coffees. Try our expertly curated artisan 
-                        coffees from our best roasters delivered directly to your door, at your schedule.
+                         coffees from our best roasters delivered directly to your door, at your schedule.
                     </PP>
                 </PPARAGRAPH>
                 {/* go back to the create plan padding */}
@@ -33,13 +33,13 @@ export const HomeCreatePlanSection = ()=>{
 
 export const PLANSECTION = styled.div`
     background: url(${planImage});
-    width: 90%;
-    margin: 5.5em auto 7.5em 1.2em;
-    padding: 6.25em 1.5em 6.25em 1.5em;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 10px;
+    width: 90%;
+    margin: 5.5em auto 7.5em 1.2em;
+    padding: 6.25em 1.5em 6.25em 1.5em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,7 +103,8 @@ export const H1 = styled.h1`
     @media(min-width: 553px){
         width: 335px;
         text-align: center;
-        margin-left: 1.5em;
+        margin-left: 1.15em;
+        font-size: 3rem;
     }
 
     @media(min-width: 775px){
@@ -140,7 +141,7 @@ export const PP = styled.p`
 
     @media(min-width: 775px){
         max-width: 70%;
-        margin-right: 14.5em;
+        margin-right: 16em;
         text-align: left;
         transition: all 0.5s ease-in-out;
     }
@@ -155,6 +156,6 @@ export const BUTTON = styled.div`
     }
 
     @media(min-width: 775px){
-        margin-left: 1.5em;
+        margin-left: 2em;
     }
 `

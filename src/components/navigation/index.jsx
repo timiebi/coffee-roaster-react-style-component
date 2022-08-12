@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState, useContext } from "react";
 import { ImageStr } from "../util/image";
 
@@ -21,46 +21,48 @@ export const Nav = ({logophoto, togglebtn, Name, logo})=>{
             <NAVCONTAINER>
                 <LOGOHAMBURGER>
                     <ImageStr source={logophoto} alt={Name} cl='logo' />
-                    <button style={{border: 'none', backgroundColor: '#fff'}} onClick={Handclick} > <ImageStr source={togglebtn} alt={Name} cl='toggltbtn' /></button>
+                    <button style={{border: 'none', backgroundColor: '#fff'}} onClick={Handclick} >
+                         <ImageStr source={togglebtn} alt={Name} cl='toggltbtn' />
+                    </button>
                 </LOGOHAMBURGER>
                 {toggle &&( <NAVCONTENT>
                     
                         <UL>
-                        <Link to='/home' className="link">
+                        <NavLink to= "/" className="link">
                             <LI>
                                 Home
                             </LI>
-                        </Link>
-                        <Link to='/' className="link">
+                        </NavLink>
+                        <NavLink to="about" className="link">
                             <LI>
                                 About Us
                             </LI>
-                        </Link>
-                        <Link to='/' className="link">
+                        </NavLink>
+                        <NavLink to="plan" className="link">
                             <LI>
                                 Create your own plan
                             </LI>
-                        </Link>
+                        </NavLink>
                     </UL>
                 </NAVCONTENT>  
                     )}
                 <NAVCONTENT2>
                     <ULDSKTP>
-                        <Link to='/' className="link">
+                        <NavLink to="/" className="link">
                             <DESKLIST>
                                 Home
                             </DESKLIST>
-                        </Link>
-                        <Link to='/' className="link">
+                        </NavLink>
+                        <NavLink to="about" className="link">
                             <DESKLIST>
                                 About Us
                             </DESKLIST>
-                        </Link>
-                        <Link to='/' className="link">
+                        </NavLink>
+                        <NavLink to="plan" className="link">
                             <DESKLIST>
                                 Create your own plan
                             </DESKLIST>
-                        </Link>
+                        </NavLink>
                     </ULDSKTP>
                 </NAVCONTENT2>
             </NAVCONTAINER>
@@ -127,6 +129,7 @@ export const UL = styled.ul`
 
     .link{
         text-decoration: none;
+
     }
 
     @media(min-width: 773px){
@@ -227,6 +230,34 @@ export const ULDSKTP = styled.ul`
 
     .link{
         text-decoration: none;
+
+        &::after {
+  content: '';
+  position: absolute;
+  width: 3rem;
+  height: 0.1em;
+  background-color: #0c0b0b;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+        
+&:hover::after,&:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
+
+&:nth-child(2), &::after {
+  transform: translate3d(-100%, 0, 0);
+}
+
+&:nth-child(2), &:hover::after,
+&:nth-child(2), &:focus::after{
+  transform: translate3d(0, 0, 0);
+}
+
+        
     }
 `
 
@@ -237,5 +268,6 @@ export const DESKLIST = styled.li`
     font-weight: bold;
      transition: 0.5s ease-in-out;
      color: #83888f;
+     
 
 `
