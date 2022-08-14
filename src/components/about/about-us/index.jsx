@@ -10,8 +10,9 @@ export const AboutUs = ()=>{
     const [about, setAbout] = useContext(aboutContext);
     return(
         <>
-            {about.map(aboutus =>(
+            
                 <ABOUTUSTOPSECTION>
+                {about.map(aboutus =>(
                 <ABOUTCONTENT>
                     <ABOUTHEADER>
                         {aboutus.abouthead}
@@ -20,8 +21,8 @@ export const AboutUs = ()=>{
                        {aboutus.aboutp}
                     </ABOUTINFO>
                 </ABOUTCONTENT>
+                ))}
             </ABOUTUSTOPSECTION>
-            ))}
         </>
     )
 }

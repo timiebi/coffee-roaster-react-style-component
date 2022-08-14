@@ -20,6 +20,7 @@
 import { Nav } from "../../components/navigation";
 import logo from '../../resources/shared/desktop/logo.svg';
 import togglbtn from '../../resources/shared/mobile/icon-hamburger.svg';
+import xtoggle from '../../resources/shared/mobile/icon-close.svg';
 
 
 export const NavView = () =>{
@@ -28,6 +29,7 @@ export const NavView = () =>{
             <Nav
             logophoto={logo}
             togglebtn={togglbtn}
+            xtoggle={xtoggle}
             />
         </>
     )

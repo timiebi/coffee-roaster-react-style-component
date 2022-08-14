@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useState, useContext } from "react";
 import { ImageStr } from "../util/image";
 
-export const Nav = ({logophoto, togglebtn, Name, logo})=>{
+export const Nav = ({logophoto, togglebtn, Name, logo, xtoggle})=>{
 
     // usestate to toggle nav btn;
     const [toggle, setToggle] = useState(false)
@@ -16,30 +16,40 @@ export const Nav = ({logophoto, togglebtn, Name, logo})=>{
             return setToggle(toggle)
         }
     }
+ 
+    
     return(
         <>
             <NAVCONTAINER>
                 <LOGOHAMBURGER>
                     <ImageStr source={logophoto} alt={Name} cl='logo' />
-                    <button style={{border: 'none', backgroundColor: '#fff'}} onClick={Handclick} >
-                         <ImageStr source={togglebtn} alt={Name} cl='toggltbtn' />
-                    </button>
+                    {!toggle? (
+                        <button style={{border: 'none', backgroundColor: '#fff'}} onClick={Handclick} >
+                            <ImageStr source={togglebtn} alt={Name} cl='toggltbtn' />
+                        </button>
+                        )
+                        :
+                        (
+                        <button style={{border: 'none', backgroundColor: '#fff'}} onClick={Handclick} >
+                            <ImageStr source={xtoggle} alt={Name} cl='toggltbtn' />
+                        </button>
+                        )
+                    }
                 </LOGOHAMBURGER>
-                {toggle &&( <NAVCONTENT>
-                    
+                {toggle &&(  <NAVCONTENT>
                         <UL>
                         <NavLink to= "/" className="link">
-                            <LI>
+                            <LI onClick={Handclick}>
                                 Home
                             </LI>
                         </NavLink>
                         <NavLink to="about" className="link">
-                            <LI>
+                            <LI onClick={Handclick}>
                                 About Us
                             </LI>
                         </NavLink>
                         <NavLink to="plan" className="link">
-                            <LI>
+                            <LI onClick={Handclick}>
                                 Create your own plan
                             </LI>
                         </NavLink>

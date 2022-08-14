@@ -15,7 +15,7 @@ export const Commitment = ()=>{
     const [about, setAbout] = useContext(aboutContext);
     return(
         <>
-           {about.map(commitment =>(
+          
 
             <COMMITMENT>
                 <IMAGECOMMITMENT>
@@ -25,28 +25,31 @@ export const Commitment = ()=>{
                 <IMAGECDESK className='commitment_image_desk'>
                     {/* <ImageStr source={commitmentImagdesk} cl='commitment_image_desk'/> */}
                 </IMAGECDESK>
+                {about.map(commitment =>(
                 <COMMITMENTCONTAINER>
                     <CHEADER>{commitment.commitmentheader}</CHEADER>
                     <CP>{commitment.commitmentinfo}</CP>
                 </COMMITMENTCONTAINER>
+                ))}
             </COMMITMENT>
-))}
+
         </>
     )
 } 
 
 
 export const COMMITMENT = styled.div`
-    /* background: url(${commitmentImage}); */
     @media(min-width: 773px){
         display: flex;
-        gap: 2rem;
+        gap: 1.5rem;
         padding: 2.5em;
+        /* margin-left: 2em; */
 
     }
 
     @media(min-width: 1020px){
-        padding: 3em 0 4em 8em;
+        padding: 5em 0 4em 8em;
+        
 
     }
 
@@ -62,7 +65,7 @@ export const IMAGECOMMITMENT =  styled.div`
         transition: all .5s ease-in-out;
     }
     @media(min-width: 538px){
-        margin-left: 1.5em;
+        margin-left: 1.8em;
         transition: all .5s ease-in-out;
     }
     @media(min-width: 773px){
@@ -81,6 +84,10 @@ export const CHEADER = styled.h1`
     font-family: "Fraunces", serif;
     font-size: 1.75rem;
     color: #2C343E;
+    @media(min-width: 773px){
+        text-align: left;
+        margin-left: .5em;
+    }
     @media(min-width: 1020px){
     text-align: left;
     font-size: 2rem;
@@ -93,18 +100,19 @@ export const CP = styled.p`
 line-height: 1.6em;
 font-family: "Barlow", sans-serif;
 text-align: center;
-width: 90%;
+width: 95%;
 color: #2C343E;
 margin-bottom: 8em;
 position: relative;
-left: .2em;
+left: -.5em;
 padding-left: 2em;
 font-size: .95em;
 @media(min-width: 773px){
-    width: 100%;
+    width: 50vw;
+    text-align: left;
 }
  @media(min-width: 1020px){
-    width: 85%;
+    width: 50vw;
     padding: 0 3em 0 6em;
     text-align: left;
     font-size: 1em;
@@ -120,6 +128,8 @@ export const IMAGECTAB = styled.div`
     
         .commitment_image_tab{
             border-radius: 12px;
+            width: 38vw;
+            margin-top: -2em;
         }
     }
     @media (min-width: 1020px){
@@ -131,9 +141,8 @@ export const IMAGECTAB = styled.div`
 export const IMAGECDESK = styled.div`
  background-image: url(${commitmentImagdesk});
  background-repeat: no-repeat;
- /* background-size: cover; */
- /* height: 60vh; */
-    display: none;
+display: none;
+    
     @media(min-width: 773px){
         display: none;
     }
@@ -143,14 +152,16 @@ export const IMAGECDESK = styled.div`
         padding: 10em 5em 10em  12.5em;
         position: relative;
         bottom: 3em;
-         height: 550px;
+        height: 550px;
         transition: all .5s ease-in-out;
+        background-size: cover;
+        border-radius: 12px;
        
         @media(min-width: 1030px){
-            padding: 10em 5em 10em  12.5em;
+            padding: 10em  13.5em;
             position: relative;
             width: 70%;
-            height: 550px;           
+            height: 550px;          
             transition: all .5s ease-in-out;
 
         }
