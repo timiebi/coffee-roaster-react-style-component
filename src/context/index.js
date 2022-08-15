@@ -14,22 +14,27 @@ export const AboutProvider = (props)=>{
         id: 1
     },
     {
-        // map: ('../resources/about/desktop/illustration-uk.svg'),
+        // map: "../resources/about/desktop/illustration-uk.svg",
         headQuarter: 'Our Headquarter',
-        name: 'United Kingdom',
-        address: '68 Asfordby Rd Alcaston SY6 1YA',
-        contact: '+44 1241 918425'
+        nameuk: 'United Kingdom',
+        ukaddress: '68 Asfordby Rd Alcaston SY6 1YA',
+        ukcontact: '+44 1241 918425',
+        id: 2
 
     },
     {
-        name: 'Canada',
-        address: '1528 Eglinton Avenue Toronto Ontario M4P 1A6',
-        contact: '+1 416 485 2997'
+        // map: "../resources/about/desktop/illustration-uk.svg",
+        namecn: 'Canada',
+        canaddress: '1528 Eglinton Avenue Toronto Ontario M4P 1A6',
+        cancontact: '+1 416 485 2997',
+        id: 3
     },
     {
-        name: 'Australia',
-        address: '36 Swanston Street Kewell Victoria',
-        contact: '+61 4 9928 3629'
+        // map: "../resources/about/desktop/illustration-uk.svg",
+        nameas: 'Australia',
+        asaddress: '36 Swanston Street Kewell Victoria',
+        ascontact: '+61 4 9928 3629',
+        id: 4
     }
 ])
     return(

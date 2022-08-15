@@ -10,7 +10,7 @@ export const AboutView = ()=>{
             <AboutUs/>
             <Commitment/>
             <Quality/>
-            <Headquarters/>  
+            {/* <Headquarters/>   */}
         </>
     )
 }
