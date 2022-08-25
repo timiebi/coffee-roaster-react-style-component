@@ -4,3 +4,28 @@
         position: relative;
     }
 } */
+
+.activeClass:before{
+    content: '';
+    position: absolute;
+    bottom: -.45rem;
+    /* right: 8rem; */
+    margin-right: 6em;
+    width: 60%;
+    background-color: #2C343E;
+    border: .9px solid #2C343E;
+    transition: all .5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    }
+    .activeClass{
+        position: relative;
+        transition: all .5s ease-in-out;
+        color: #2C343E !important;
+    }
+
+    .arrowup{
+        transform: rotate(180deg);
+        color: #2C343E;
+        transition: all .5s ease-in-out;
+    }

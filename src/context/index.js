@@ -35,7 +35,12 @@ export const AboutProvider = (props)=>{
         asaddress: '36 Swanston Street Kewell Victoria',
         ascontact: '+61 4 9928 3629',
         id: 4
-    }
+    },
+    {
+        createheader: "Create a plan",
+        planinfo: "Build a subscription plan that best fits your needs. We offer an assortment of the best artisan coffees from around the globe delivered fresh to your door.",
+        id: 5 
+    },
 ])
     return(
         <>

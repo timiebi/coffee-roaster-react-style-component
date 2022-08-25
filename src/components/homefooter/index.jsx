@@ -73,8 +73,9 @@ export const HFCONTAINER = styled.div`
      }
 
      @media(min-width: 1020px){
-        margin-left: 3.5em;
+        margin-left: 4em;
         padding: 1em;
+        width: 88%;
      }
 `
 

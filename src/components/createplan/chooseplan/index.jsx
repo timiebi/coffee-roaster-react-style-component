@@ -1,18 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
-import { CreatePlanButton } from '../../util/interaction/creaateplanbutton';
+import React,{useState, useContext} from "react";
+import styled from "styled-components";
+import { aboutContext } from "../../../context";
+import planImage from "../../../resources/plan/mobile/bg-order-summary.png";
+import planImage1 from "../../../resources/plan/mobile/bg-steps.png";
 
-export const HowItWorks = ()=>{          // will work on this with an api
-
+export const ChoosePlan = ()=>{
+    const [about, setAbout] = useContext(aboutContext);
     return(
         <>
-       
-            <HOWITWORKS>
-                <WH2>How it Works</WH2>
-               
+              <HOWITWORKS>
                 <OL>
                     <LII>
-                    <CIRCLE></CIRCLE>
+                    <CIRCLE className='c_circle circleone' ></CIRCLE>
                         <H33>
                             Pick your coffee
                         </H33>
@@ -45,53 +44,56 @@ export const HowItWorks = ()=>{          // will work on this with an api
                     </LII>
                 </OL>
             </HOWITWORKS>
-            <BUTTONSTY>
-                <CreatePlanButton/>
-            </BUTTONSTY>
         </>
     )
 }
 
 
 
+
+
 // style 
 export const HOWITWORKS = styled.div`
+background: #2C343E;
+display: flex;
+justify-content: center;
+flex-direction: column;
+/* overflow-x: hidden; */
+margin-bottom: 8em;
+padding-bottom: 8em;
+border-radius: 10px;
+
+@media(min-width: 773px){
+    width: 87%;
+    margin-left: 5em;
+}
+
+@media(min-width: 1020px){
+    padding-top: 3em;
+}
+
 
         
-`
-
-
-export const WH2 = styled.h2`
-    margin-top: 5em;
-    text-align: center;
-    font-family: "Fraunces", serif;
-    color: rgb(131, 136, 143);
-    transition: all .5s ease-in-out;
-
-    /* come back to it again */
-    @media(min-width: 773px){
-        margin-right: 20em;
-    }
-    @media(min-width: 1020px){
-        margin-right: 28em;
-    }
-    
-`
+`  
 
 
 export const OL = styled.ol`
+    overflow: hidden;
     transition: all .5s ease-in-out;
     position: relative;
-    width: 90%;
+    /* width: 90%; */
+    top: 1.5em;
     left: 0;
     right: 0;
     margin: auto;
     @media(min-width: 773px){
+        overflow: visible;
         display: flex;
         align-items: center;
         margin-left: 1.5em;
         transition: all .5s ease-in-out;
         margin-top: 5em;
+         width: 90%;
     }
 
     @media(min-width: 1020px){
@@ -128,7 +130,7 @@ export const LII = styled.li`
      position: absolute;
      width: 56vw;
      right: 2em;
-     top: .8em;
+     top: .6em;
      border: 2px solid #fdd6ba;
      }
    }
@@ -176,7 +178,7 @@ export const H33 = styled.h3`
     transition: all .5s ease-in-out;
     font-family: "Fraunces", serif;
     text-align: center;
-    color: #2C343E;
+    color: #fff;
     padding-top: 3.5em;
     transition: all .5s ease-in-out;
     
@@ -190,7 +192,7 @@ export const P11 = styled.p`
     margin-left: 2.5em;
     margin-top: 2.3em;
     transition: all .5s ease-in-out;
-    color: rgb(131, 136, 143);
+    color: #fff;
 
     @media(min-width: 1020px){
         width: 65%;
@@ -202,25 +204,6 @@ export const P11 = styled.p`
 
 `
 
-// button style
-export const BUTTONSTY = styled.div`
-    margin-top: 5em;
-    margin-bottom: 5.5em;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    @media (min-width: 773px){
-         margin-left: 2em;
-         width: 270px;
-         transition: all .5s ease-in-out;
-         justify-content: flex-start;
-    }
-    @media(min-width: 1020px){
-        margin-left: 7em;
-        transition: all .5s ease-in-out;
-    }
-`
-
 
 
 
@@ -228,12 +211,12 @@ export const BUTTONSTY = styled.div`
 export const CIRCLE= styled.div`
 display: none;
     @media(min-width: 773px){
-    display: block;
+    display: flex;
     width: 35px;
     height: 35px;
     border-radius: 50%;
     border: 2px solid #0e8784;
-    background: #fefcf7;
+    background: #2C343E;
     position: absolute;
     left: 4em;
     bottom: 22em;
@@ -243,9 +226,9 @@ display: none;
         bottom: 25em;
         transition: all .5s ease-in-out;
         display: flex;
-    align-items: center;
-    justify-content: center;
-    }
+        align-items: center;
+        justify-content: center;
 
+    }
 
 `
