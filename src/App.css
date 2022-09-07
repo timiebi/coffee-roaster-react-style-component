@@ -5,11 +5,10 @@
     }
 } */
 
-.activeClass:before{
+/* .activeClass:before{
     content: '';
     position: absolute;
     bottom: -.45rem;
-    /* right: 8rem; */
     margin-right: 6em;
     width: 60%;
     background-color: #2C343E;
@@ -17,7 +16,7 @@
     transition: all .5s ease-in-out;
     display: flex;
     justify-content: center;
-    }
+    } */
     .activeClass{
         position: relative;
         transition: all .5s ease-in-out;
