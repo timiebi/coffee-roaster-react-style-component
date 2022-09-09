@@ -9,6 +9,7 @@ import {
     Consistency
  } 
  from '../../context/createplan';
+ import { CreateMyPlan } from '../util/interaction/creaateplanbutton';
 
 
 //  style
@@ -16,30 +17,33 @@ import '../../App.css';
 
 
 
-export const SelectCoffee = ()=>{
+export const SelectCoffee = ({type})=>{
     const [active, setActive] = useState(false);
     const [active2, setActive2] = useState(false);
     const [active3, setActive3] = useState(false);
     const [active4, setActive4] = useState(false);
     const [active5, setActive5] = useState(false);
-    // const [plan, setPlan] = useState([CreatePlanProvider])
+    
+    //  hooks for the radio values
+    const [typeOfCoffeeValue, setTypeOfCoffeeValue] = useState("");
+    const [selectedOption, setSelectedOption] = useState("");
+    const [amounts, setAmounts] = useState("");
+    const [preferenceOption, setPreferenceOption] = useState("");
+    const [howOftenOption, setHowOftenOption] = useState("");
+
+    // functions to set the value selected from the options to summary section 
+    const capsuleRadioValue = e => setTypeOfCoffeeValue(e.target.value); 
+    const typeOfCoffeeSelected = e => setSelectedOption(e.target.value);
+    const prizesSelected = e => setAmounts(e.target.value);
+    const preferenceChosen = e => setPreferenceOption(e.target.value);
+    const howOftenShouldBeDelivered = e => setHowOftenOption(e.target.value);
     
 
-    const click =()=>{
-        setActive(!active)
-    }
-    const click2 =()=>{
-        setActive2(!active2)
-    }
-    const click3 =()=>{
-        setActive3(!active3)
-    }
-    const click4 =()=>{
-        setActive4(!active4)
-    }
-    const click5 =()=>{
-        setActive5(!active5)
-    }
+    const click =()=> setActive(!active);
+    const click2 =()=> setActive2(!active2);
+    const click3 =()=> setActive3(!active3);
+    const click4 =()=> setActive4(!active4);
+    const click5 =()=> setActive5(!active5);
 
 
     // form 
@@ -62,8 +66,15 @@ export const SelectCoffee = ()=>{
                                 {
                                 active &&(
                                     <SELECTRADIO>
-                                            <RADIO className='radio' id='6' name='ee' value="me" />
-                                            <LABEL htmlFor='6' className='label'>
+                                            <RADIO 
+                                            className='radio' 
+                                            id={options.id} name='plan' 
+                                            value={options.preferenceHeader} 
+                                            onClick={capsuleRadioValue}
+                                            // onChange={capsuleRadioValue}
+                                            
+                                            />
+                                            <LABEL htmlFor={options.id} className='label'>
                                                 <H2>{options.preferenceHeader}</H2>
                                                 <P>{options.preferenceInfo}</P>
                                             </LABEL>
@@ -88,8 +99,14 @@ export const SelectCoffee = ()=>{
                                 {
                                 active2 &&(
                                     <SELECTRADIO>
-                                            <RADIO className='radio' id='6' name='ee' value="me" />
-                                            <LABEL htmlFor='6' className='label'>
+                                            <RADIO 
+                                            className='radio' 
+                                            id={options.id} name='plan' 
+                                            value={options.optionheader} 
+                                            onClick={typeOfCoffeeSelected}
+                                            // onChange={capsuleRadioValue} 
+                                            />
+                                            <LABEL htmlFor={options.id} className='label'>
                                                 <H2>{options.optionheader}</H2>
                                                 <P>{options.optionInfo}</P>
                                             </LABEL>
@@ -104,9 +121,15 @@ export const SelectCoffee = ()=>{
             ))}
             {Amount.map(list =>(
                 <>
-                    <SELECTCOFFEECONTAINER onClick={click3} className={active3 ? "activeClass" : ""} >
-                            <H1>{list.amount}</H1>
-                            <IMG src={arrowicon} className={active3 ? "arrowup": ""} />
+                    <SELECTCOFFEECONTAINER 
+                    onClick={click3} 
+                    className={active3 ? "activeClass" : ""} 
+                    >
+                        <H1>{list.amount}</H1>
+                        <IMG 
+                        src={arrowicon} 
+                        className={active3 ? "arrowup": ""} 
+                        />
                     </SELECTCOFFEECONTAINER>
                     <SELECTCOFFEESECTION>
                         {list.prices.map(options =>(
@@ -114,8 +137,14 @@ export const SelectCoffee = ()=>{
                                 {
                                 active3 &&(
                                     <SELECTRADIO>
-                                            <RADIO className='radio' id='6' name='ee' value="me" />
-                                            <LABEL htmlFor='6' className='label'>
+                                            <RADIO
+                                              className='radio' 
+                                              id={options.id} 
+                                              name='plan' 
+                                              value={options.weight} 
+                                              onClick={prizesSelected}
+                                             />
+                                            <LABEL htmlFor={options.id} className='label'>
                                                 <H2>{options.weight}</H2>
                                                 <P>{options.content}</P>
                                             </LABEL>
@@ -140,8 +169,14 @@ export const SelectCoffee = ()=>{
                                 {
                                 active4 &&(
                                     <SELECTRADIO>
-                                            <RADIO className='radio' id='6' name='ee' value="me" />
-                                            <LABEL htmlFor='6' className='label'>
+                                            <RADIO
+                                            className='radio' 
+                                            id={options.id} 
+                                            name='plan' 
+                                            value={options.typeheader} 
+                                            onClick={preferenceChosen}  
+                                            />
+                                            <LABEL htmlFor={options.id} className='label'>
                                                 <H2>{options.typeheader}</H2>
                                                 <P>{options.typeInfo}</P>
                                             </LABEL>
@@ -166,24 +201,58 @@ export const SelectCoffee = ()=>{
                                 {
                                 active5 &&(
                                     <SELECTRADIO>
-                                            <RADIO className='radio' id='6' name='ee' value="me" />
-                                            <LABEL htmlFor='6' className='label'>
+                                            <RADIO 
+                                            className='radio' 
+                                            id={options.id} 
+                                            name='plan' 
+                                            value={options.howOftenheader} 
+                                            onClick={howOftenShouldBeDelivered} 
+                                            />
+                                            <LABEL htmlFor={options.id} className='label'>
                                                 <H2>{options.howOftenheader}</H2>
                                                 <P>{options.howOftenInfo}</P>
                                             </LABEL>
                                     </SELECTRADIO>
                                 )
-                            }
+                            } 
                             </>
                         ))}
                     </SELECTCOFFEESECTION>
                     
                 </>
             ))}
+            <ORDERSUMMARY>
+            <H3>
+                order summary
+            </H3>
+            <ORDERSUMMARCONTAINER>
+                <CHOICEP>
+                “I drink my coffee 
+                <INTRO> as</INTRO>
+                <INTROPREFERENCE> {!typeOfCoffeeValue ? "_____": `${typeOfCoffeeValue}`} </INTROPREFERENCE>, 
+                    with  a 
+                <BEANTYPE> {!selectedOption ? "_____": `${selectedOption}`} </BEANTYPE> 
+                    type of bean. 
+                <AMOUNT> {!amounts ? "_____": `${amounts}`} </AMOUNT>
+                <GRIND> ground ala</GRIND>
+                <OPTION> {!preferenceOption ? "_____": `${preferenceOption}`} </OPTION>, sent to me 
+                <DELIVERY> {!howOftenOption ? "_____": `${howOftenOption}`} </DELIVERY>.”
+                </CHOICEP>
+            </ORDERSUMMARCONTAINER>
+            </ORDERSUMMARY>
+            <CreateMyPlan
+            type="submit"
+            disabled={
+                !typeOfCoffeeValue ||
+                !selectedOption    ||
+                !amounts           ||
+                !preferenceOption  ||
+                !howOftenOption
+            }
+            />
         </FORM>
     )
 }
-
 
 
 export const FORM = styled.form`
@@ -275,6 +344,77 @@ export const LABEL = styled.label`
 export const H2 = styled.h2`
     line-height: 2.5em;
     font-family: "Fraunces", serif;
+`
+
+
+
+
+// order delivery styles begins
+
+export const ORDERSUMMARY = styled.div`
+  margin-bottom: 3.5em;
+  padding: 2.5em 1.5em;
+  border-radius: 0.625rem;
+  background-color: #2C343E;
+  margin-left: 2em;
+  margin-right: 2em;
+
+  @media (min-width: 48rem) {
+    padding: 1.75em 2.75em;
+}
+
+@media (min-width: 64rem) {
+    padding: 1.75em 4em;
+}
+`
+
+export const ORDERSUMMARCONTAINER = styled.div` 
+  font-family: "Fraunces", serif;
+  font-size: 1.5rem;
+  line-height: 3rem;
+`
+
+export const H3 = styled.h3`
+  padding-bottom: 0.5em;
+  font-family: "Barlow", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.625rem;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0.5;
+`
+export const CHOICEP = styled.p`
+    font-size: 1.2rem;
+`
+
+export const DELIVERY = styled.span`
+color: #0e8784;
+text-transform: capitalize;
+`
+
+export const OPTION = styled.span`
+color: #0e8784;
+text-transform: capitalize;
+`
+
+export const GRIND = styled.span`
+`
+
+export const AMOUNT = styled.span`
+color: #0e8784;
+text-transform: capitalize;
+`
+
+export const BEANTYPE = styled.span`
+color: #0e8784;
+text-transform: capitalize;
+`
+export const INTROPREFERENCE = styled.span`
+color: #0e8784;
+text-transform: capitalize;
+`
+export const INTRO = styled.span`
 `
 
 
