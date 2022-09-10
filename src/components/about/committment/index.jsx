@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import { useContext } from "react"; 
 import { aboutContext } from "../../../context";
@@ -9,24 +9,46 @@ import commitmentImagetb from '../../../resources/about/tablet/image-commitment.
 import commitmentImagdesk from '../../../resources/about/desktop/image-commitment.jpg';
 
 
+// aos 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 export const Commitment = ()=>{
 
     const [about, setAbout] = useContext(aboutContext);
+
+
+
+    // initialize aos animation
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+      }, []);
     return(
         <>
           
 
             <COMMITMENT>
-                <IMAGECOMMITMENT>
-                    <ImageStr source={commitmentImage} width='95%' cl='commitment_image'/>
-                </IMAGECOMMITMENT>
-                <IMAGECTAB><ImageStr source={commitmentImagetb} cl='commitment_image_tab'/></IMAGECTAB>
-                <IMAGECDESK className='commitment_image_desk'>
-                    {/* <ImageStr source={commitmentImagdesk} cl='commitment_image_desk'/> */}
-                </IMAGECDESK>
+                <DIV
+                 data-aos="fade-right"
+                 data-aos-delay='50'
+                 data-aos-duration='900'
+                >
+                    <IMAGECOMMITMENT>
+                        <ImageStr source={commitmentImage} width='95%' cl='commitment_image'/>
+                    </IMAGECOMMITMENT>
+                    <IMAGECTAB><ImageStr source={commitmentImagetb} cl='commitment_image_tab'/></IMAGECTAB>
+                    <IMAGECDESK className='commitment_image_desk'>
+                        {/* <ImageStr source={commitmentImagdesk} cl='commitment_image_desk'/> */}
+                    </IMAGECDESK>
+                </DIV>
                 {about.map(commitment =>(
-                <COMMITMENTCONTAINER>
+                <COMMITMENTCONTAINER
+                data-aos="fade-left"
+                 data-aos-delay='50'
+                 data-aos-duration='1000'
+                >
                     <CHEADER>{commitment.commitmentheader}</CHEADER>
                     <CP>{commitment.commitmentinfo}</CP>
                 </COMMITMENTCONTAINER>
@@ -55,6 +77,8 @@ export const COMMITMENT = styled.div`
 
 `
 
+
+export const DIV = styled.div``
 export const IMAGECOMMITMENT =  styled.div`
     margin-left: 1em;
     margin-bottom: 3.5em;

@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useEffect, useContext} from "react";
 import styled from "styled-components";
 import { aboutContext } from "../../../context";
 
@@ -7,19 +7,35 @@ import qualityImage from '../../../resources/about/mobile/image-quality.jpg';
 import qualityImagetb from '../../../resources/about/tablet/image-quality.jpg';
 import qualityImagedesk from '../../../resources/about/desktop/image-quality.jpg';
 
+// aos 
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export const Quality = ()=>{
     const [about, setAbout] = useContext(aboutContext)
+
+     // initialize aos animation
+     useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+      }, []);
     return(
         <>
            
             <QUALITYSECTION>
                 <QUALITYCONTAINER>
-                    <QUALITYIMAGE >
+                    <QUALITYIMAGE 
+                    data-aos="fade-up"
+                    data-aos-duration="2000"
+                    >
 
                     </QUALITYIMAGE> 
                     {about.map(quality=>(
-                    <QUALITYINFO>
+                    <QUALITYINFO 
+                    data-aos="fade-right"
+                    data-aos-delay='50'
+                    data-aos-duration='900'
+                    >
                             <HEADER>
                             {quality.quality}
                             </HEADER>

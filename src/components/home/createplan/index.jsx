@@ -1,3 +1,5 @@
+import React,{useEffect} from "react";
+
 // button 
 import { CreatePlanButton } from "../../util/interaction/creaateplanbutton";
 // style
@@ -8,10 +10,25 @@ import planImage from '../../../resources/home/mobile/cofferImage.jpg';
 import planImagetab from '../../../resources/home/tablet/pimagetab.jpg';
 import pimagedesk from '../../../resources/home/desktop/coffeeimagedesk.jpg';
 
+// aos 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export const HomeCreatePlanSection = ()=>{
+
+     // initialize aos animation
+     useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+      }, []);
+
+
     return(
         <>
-           <PLANSECTION>
+           <PLANSECTION 
+            data-aos="fade-up"
+            data-aos-duration="3000"
+           >
             <CREATEPLAN>
                 <PHEADER>
                     <H1>Great coffee made simple.</H1>
@@ -60,15 +77,15 @@ export const PLANSECTION = styled.div`
         background-position: center;
         border-radius: 15px;
         text-align: left;
-        margin-top: 8em;
+        /* margin-top: 8em; */
         margin-bottom: 6em;
         margin-left: 2.7em;
         /* check the padding again after the button */
-        padding: 6em 20em 5.5em 1em;
+        padding: 6em 20em 3em 1em;
         transition: all 0.5s ease-in-out;
     }
 
-    @media(min-width: 1440px){
+    /* @media(min-width: 1440px){
         background: url(${planImagetab});
         background-size: cover;
         background-repeat: no-repeat;
@@ -76,7 +93,7 @@ export const PLANSECTION = styled.div`
         padding: 7.8em 50em 7.8em 3.5em;
         margin-left: 4.4em;
         transition: all 0.5s ease-in-out;
-    }
+    } */
    
 `
 

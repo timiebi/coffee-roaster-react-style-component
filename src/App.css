@@ -28,3 +28,7 @@
         color: #2C343E;
         transition: all .5s ease-in-out;
     }
+
+    #listcolor >li{
+        color: #fff;
+     }

@@ -1,17 +1,34 @@
-import React, {useState, useContext} from "react";
+import React, {useEffect, useContext} from "react";
 import { aboutContext } from "../../../context";
 import styled from "styled-components";
 import aboutbgmobile from '../../../resources/about/mobile/image-hero-whitecup.jpg';
 import aboutbgtablet from '../../../resources/about/tablet/image-hero-whitecup.jpg';
 import aboutbgdesktop from '../../../resources/about/desktop/image-hero-whitecup.jpg';
 
+// aos 
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export const AboutUs = ()=>{
     const [about, setAbout] = useContext(aboutContext);
+
+
+     // initialize aos animation
+     useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+      }, []);
+
+
     return(
         <>
             
-                <ABOUTUSTOPSECTION>
+                <ABOUTUSTOPSECTION
+                 data-aos="fade-right"
+                 data-aos-delay='55'
+                 data-aos-duration='1000'
+                 data-aos-mirror='true'
+                 >
                 {about.map(aboutus =>(
                 <ABOUTCONTENT>
                     <ABOUTHEADER>
@@ -58,7 +75,7 @@ export const ABOUTUSTOPSECTION = styled.div`
         background-repeat: no-repeat;
         background-position: center;
         margin-left: 2.8em;
-        padding: 8em;
+        /* padding: 8em; */
         width: 90%;
         transition: all .5s ease-in-out;
     }

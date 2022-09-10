@@ -1,18 +1,46 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import { CreatePlanButton } from '../../util/interaction/creaateplanbutton';
 
+// aos 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export const HowItWorks = ()=>{          // will work on this with an api
+  
+
+     // initialize aos animation
+     useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+      }, []);
+
 
     return(
         <>
        
             <HOWITWORKS>
-                <WH2>How it Works</WH2>
+                <WH2
+                data-aos="fade-up"
+                data-aos-duration="3000"
+                >How it Works</WH2>
                
-                <OL>
+                <OL
+                data-aos="fade-up"
+                data-aos-duration="2800"
+                >
                     <LII>
-                    <CIRCLE></CIRCLE>
+                    <CIRCLE 
+                    className='c_circle1'
+                    data-aos="fade-up"
+                    data-aos-duration="2800"
+                     >
+                    </CIRCLE>
+
+                    <DIV 
+                    data-aos="fade-up"
+                    data-aos-duration="2800"
+                    >
                         <H33>
                             Pick your coffee
                         </H33>
@@ -21,19 +49,43 @@ export const HowItWorks = ()=>{          // will work on this with an api
                             Our beans are ethically sourced and we pay fair prices for them.
                             There are new coffees in all profiles every month for you to try out.
                         </P11>
+                    </DIV>
+                        
                     </LII>
                     <LII>
-                    <CIRCLE className='c_circle'></CIRCLE>
+                    <CIRCLE 
+                    className='c_circle'
+                    data-aos="fade-down"
+                    data-aos-duration="2800"
+                    >
+                    </CIRCLE>
+
+                    <DIV 
+                    data-aos="fade-up"
+                    data-aos-duration="2800"
+                    >
                         <H33>
-                            Choose the frequency
+                        Choose the frequency
                         </H33>
                         <P11>
                             Customize your order frequency, quantity, even your roast style and grind type. Pause, 
                             skip or cancel your subscription with no commitment through our online portal.
                         </P11>
+                    </DIV>
+                        
                     </LII>
                     <LII>
-                    <CIRCLE className='h_line-cross'></CIRCLE>
+                    <CIRCLE 
+                    className='h_line-cross'
+                    data-aos="fade-right"
+                    data-aos-duration="2800"
+                    >
+                    </CIRCLE>
+
+                    <DIV 
+                    data-aos="fade-up"
+                    data-aos-duration="2800"
+                    >
                         <H33>
                             Receive and enjoy!
                         </H33>
@@ -42,10 +94,15 @@ export const HowItWorks = ()=>{          // will work on this with an api
                             Sit back and enjoy award-winning world-class coffees
                             curated to provide a distinct tasting experience.
                         </P11>
+                    </DIV>
+                        
                     </LII>
                 </OL>
             </HOWITWORKS>
-            <BUTTONSTY>
+            <BUTTONSTY 
+            data-aos="fade-right"
+            data-aos-duration="2800"
+            >
                 <CreatePlanButton/>
             </BUTTONSTY>
         </>
@@ -53,7 +110,9 @@ export const HowItWorks = ()=>{          // will work on this with an api
 }
 
 
-
+export const DIV = styled.div`
+    
+`
 // style 
 export const HOWITWORKS = styled.div`
 
@@ -116,6 +175,17 @@ export const LII = styled.li`
 
     .c_circle{
         z-index: 1;
+        @media(min-width: 773px){
+            top: -6em;
+        }
+        
+    }
+    .c_circle1{
+        z-index: 1;
+        @media(min-width: 773px){
+            top: -6em;
+        }
+        
     }
 
     .h_line-cross{
@@ -239,13 +309,13 @@ display: none;
     bottom: 22em;
     transition: all .5s ease-in-out;
     }
-    @media(min-width: 1020px){
+    /* @media(min-width: 1020px){
         bottom: 25em;
         transition: all .5s ease-in-out;
         display: flex;
     align-items: center;
     justify-content: center;
-    }
+    } */
 
 
 `

@@ -1,23 +1,49 @@
 import styled from "styled-components";
-import React from "react";
+import React, {useEffect} from "react";
 
 // assets
 import { ImageStr } from "../../util/image";
+
+// aos 
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 
 
 export const Collection =({bagphoto})=>{
+    // initialize aos animation
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+      }, []);
+    
     return(
         <>
             <COLLECTIONSECTION>
-                <H2>our collection</H2>
+                <H2
+                data-aos="fade-left"
+                data-aos-delay='50'
+                data-aos-duration='900'
+                >
+                    our collection
+                </H2>
                 <COLLECTIONLISTCONTAINER>
                     <LISTCONTENT>
-                        <BAGIMAGE>
+                        <BAGIMAGE
+                        data-aos="fade-right"
+                        data-aos-delay='55'
+                        data-aos-duration='1000'
+                        data-aos-mirror='true'
+                        >
                             <ImageStr source={bagphoto} width='200px'/>
                         </BAGIMAGE>
-                       <HEADPA>
+                       <HEADPA
+                       data-aos="fade-left"
+                       data-aos-delay='60'
+                       data-aos-duration='1100'
+                       data-aos-mirror='true'
+                       >
                             <H3>
                                 Gran Espresso
                             </H3>
@@ -29,10 +55,20 @@ export const Collection =({bagphoto})=>{
                 </COLLECTIONLISTCONTAINER>
                 <COLLECTIONLISTCONTAINER>
                     <LISTCONTENT>
-                        <BAGIMAGE>
+                        <BAGIMAGE
+                        data-aos="fade-right"
+                        data-aos-delay='55'
+                        data-aos-duration='1000'
+                        data-aos-mirror='true'
+                        >
                             <ImageStr source={bagphoto} width='200px'/>
                         </BAGIMAGE>
-                       <HEADPA>
+                       <HEADPA
+                       data-aos="fade-left"
+                       data-aos-delay='60'
+                       data-aos-duration='1100'
+                       data-aos-mirror='true'
+                       >
                             <H3>
                                 Gran Espresso
                             </H3>
@@ -44,10 +80,20 @@ export const Collection =({bagphoto})=>{
                 </COLLECTIONLISTCONTAINER>
                 <COLLECTIONLISTCONTAINER>
                     <LISTCONTENT>
-                        <BAGIMAGE>
+                        <BAGIMAGE
+                        data-aos="fade-right"
+                        data-aos-delay='55'
+                        data-aos-duration='1000'
+                        data-aos-mirror='true'
+                        >
                             <ImageStr source={bagphoto} width='200px'/>
                         </BAGIMAGE>
-                       <HEADPA>
+                       <HEADPA
+                       data-aos="fade-left"
+                       data-aos-delay='60'
+                       data-aos-duration='1100'
+                       data-aos-mirror='true'
+                       >
                             <H3>
                                 Gran Espresso
                             </H3>
@@ -59,10 +105,20 @@ export const Collection =({bagphoto})=>{
                 </COLLECTIONLISTCONTAINER>
                 <COLLECTIONLISTCONTAINER>
                     <LISTCONTENT>
-                        <BAGIMAGE>
+                        <BAGIMAGE 
+                        data-aos="fade-right"
+                        data-aos-delay='55'
+                        data-aos-duration='1000'
+                        data-aos-mirror='true'
+                        >
                             <ImageStr source={bagphoto} width='  200px'/>
                         </BAGIMAGE>
-                       <HEADPA>
+                       <HEADPA
+                       data-aos="fade-left"
+                       data-aos-delay='60'
+                       data-aos-duration='1100'
+                       data-aos-mirror='true'
+                       >
                             <H3>
                                 Gran Espresso
                             </H3>

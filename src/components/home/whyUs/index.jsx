@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import styled from "styled-components";
 //  component
 import { ImageStr } from "../../util/image";
@@ -6,13 +6,28 @@ import { ImageStr } from "../../util/image";
 // Assets 
 import '../../../App.css';
 
+// aos 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 
 export const WhyUs = ({wphoto, icong, truck})=>{
+
+    // initialize aos animation
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+      }, []);
+
+
     return(
         <>
             <WHYUSSECTION>
-                <WHYUSCONTENT>
+                <WHYUSCONTENT
+                data-aos="fade-up"
+                data-aos-duration="3000"
+                >
                     <WH2>
                          Why choose us?
                     </WH2>
@@ -22,7 +37,11 @@ export const WhyUs = ({wphoto, icong, truck})=>{
                         experience on every level
                     </WP>
                     <BENEFITBOX>
-                        <BENEFITS>
+                        <BENEFITS
+                        data-aos="fade-right"
+                        data-aos-duration="2500"
+                        data-aos-once='true'
+                        >
                             <SECTIONZ>
                                 <IMAGEBEAN>
                                     <ImageStr source={wphoto} height='70px'/>
@@ -38,7 +57,11 @@ export const WhyUs = ({wphoto, icong, truck})=>{
                                 </HEADERPA>
                             </SECTIONZ>
                         </BENEFITS>
-                        <BENEFITS>
+                        <BENEFITS 
+                        data-aos="fade-left"
+                        data-aos-duration="2600"
+                        data-aos-once='true'
+                        >
                             <SECTIONZ>
                                 <IMAGEBEAN>
                                     <ImageStr source={icong} height='70px'/>
@@ -53,7 +76,10 @@ export const WhyUs = ({wphoto, icong, truck})=>{
                                 </HEADERPA>
                             </SECTIONZ>
                         </BENEFITS>
-                        <BENEFITS>
+                        <BENEFITS
+                        data-aos="fade-right"
+                        data-aos-duration="2800"
+                        >
                             <SECTIONZ>
                                 
                                     <IMAGEBEAN>

@@ -1,13 +1,30 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { useState} from "react";
+import { useState, useEffect} from "react";
 import { ImageStr } from "../util/image";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 export const Nav = ({logophoto, togglebtn, Name, logo, xtoggle})=>{
-
+    
     // usestate to toggle nav btn;
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState(false);
+
+    // state for scroll change nav bar background 
+    const [changeNavBgColor, setchangeNavBgColor] = useState(false);
+console.log(changeNavBgColor)
+    // scroll change nav backgroundColor 
+    const ScrollChangeBackground = () =>{
+        if(window.scrollY > window.innerHeight / 2){
+            return  setchangeNavBgColor(true)
+        }
+        else{
+            return setchangeNavBgColor(false) 
+        }
+    }
+
+ 
+
     const Handclick =()=>{
         if(setToggle(toggle)){
             return setToggle(!toggle)
@@ -16,14 +33,31 @@ export const Nav = ({logophoto, togglebtn, Name, logo, xtoggle})=>{
             return setToggle(toggle)
         }
     }
+
+    // link to the top
     const scrollToTop = () => {
         window.scrollTo(0, 0)
     }
  
+
+    // initialize aos animation
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+        ScrollChangeBackground()
+
+        // nav scroll changeNavBgColor 
+        window.addEventListener("scroll", ScrollChangeBackground)
+      }, []);
     
     return(
-        <>
-            <NAVCONTAINER>
+        <> <BACKGROUND> 
+            <NAVCONTAINER
+            className={changeNavBgColor ? "bgColor" : ""} 
+            // data-aos="fade-down"
+            // data-aos-delay='50'
+            // data-aos-duration='400'
+            >
                 <LOGOHAMBURGER>
                     <ImageStr source={logophoto} alt={Name} cl='logo' />
                     {!toggle? (
@@ -61,24 +95,37 @@ export const Nav = ({logophoto, togglebtn, Name, logo, xtoggle})=>{
                     )}
                 <NAVCONTENT2>
                     <ULDSKTP>
-                        <NavLink to="/" className="link" onClick={scrollToTop} >
-                            <DESKLIST>
+                        <NavLink 
+                        id={changeNavBgColor ? "listcolor" : ""}  
+                        to="/"  className="link" 
+                        onClick={scrollToTop} 
+                        >
+                            <DESKLIST >
                                 Home
                             </DESKLIST>
                         </NavLink>
-                        <NavLink to="about" className="link" onClick={scrollToTop} >
+                        <NavLink  
+                        id={changeNavBgColor ? "listcolor" : ""} 
+                        to="about" className="link" 
+                        onClick={scrollToTop} 
+                        >
                             <DESKLIST>
                                 About Us
                             </DESKLIST>
                         </NavLink>
-                        <NavLink to="plan" className="link" onClick={scrollToTop} >
+                        <NavLink  id={changeNavBgColor ? "listcolor" : ""} 
+                        to="plan" className="link" 
+                        onClick={scrollToTop} 
+                        >
                             <DESKLIST>
                                 Create your own plan
                             </DESKLIST>
                         </NavLink>
                     </ULDSKTP>
                 </NAVCONTENT2>
-            </NAVCONTAINER>
+        </NAVCONTAINER>
+    </BACKGROUND>
+           
         </>
     )
 }
@@ -87,25 +134,32 @@ export const Nav = ({logophoto, togglebtn, Name, logo, xtoggle})=>{
 
 
 // nav styles 
-
+export const BACKGROUND = styled.div`
+.bgColor{
+            background-color: #2C343E;
+            /* opacity: .9; */
+        }
+`
 export const NAVCONTAINER = styled.div`
         width: 100%;
-        background-color: #fff;
         position: fixed;
         top: 0;
         padding: .5em;
         z-index: 100;
+        transition: 0.5s ease-in;
+        overflow: hidden;
+        
 
 @media(min-width: 773px){
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        background-color: #fff;
+        /* background-color: #fff; */
         position: fixed;
         z-index: 100;
         top: 0;
-        padding: .5em;
+        padding: .1em;
         transition: 0.5s ease-in-out;
     }
     
@@ -169,6 +223,7 @@ export const LOGOHAMBURGER = styled.div`
             display: block;
             height: 20px;
             position: relative;
+          
             
             &:hover{
                 cursor: pointer;
@@ -176,7 +231,7 @@ export const LOGOHAMBURGER = styled.div`
 
             
             @media(min-width: 773px){
-                height: 22px;
+                /* height: 22px; */
             }
          }
          .toggltbtn{
@@ -200,14 +255,14 @@ export const LOGOHAMBURGER = styled.div`
 /* desktop nav */
 
 export const NAVCONTENT2 = styled.div`
+    
      @media(min-width: 773px){
        height: fit-content;
        transition: 0.5s ease-in-out;
        width: 40%;
        padding: 1em;
        margin-right: 1em;
-       background: #fff;
-       /* border: 2px solid red; */
+   
     }
 
     @media(max-width: 1020px){
@@ -222,7 +277,7 @@ export const NAVCONTENT2 = styled.div`
 `
 export const ULDSKTP = styled.ul`
     display: none;
-    
+
     
     @media(min-width: 773px){
         display: block;
@@ -239,13 +294,17 @@ export const ULDSKTP = styled.ul`
 
     .link{
         text-decoration: none;
+        &:hover, :focus{
+            border-bottom: 3px solid #777c49;
+            transition: all .2s ease;
+        }
 
-        &::after {
+        /* &::after {
   content: '';
   position: absolute;
   width: 3rem;
   height: 0.1em;
-  background-color: #0c0b0b;
+  background-color: #777c49;
   opacity: 0;
   transition: opacity 300ms, transform 300ms;
 }
@@ -264,7 +323,7 @@ export const ULDSKTP = styled.ul`
 &:nth-child(2), &:hover::after,
 &:nth-child(2), &:focus::after{
   transform: translate3d(0, 0, 0);
-}
+} */
 
         
     }
@@ -273,10 +332,11 @@ export const ULDSKTP = styled.ul`
 export const DESKLIST = styled.li`
     text-decoration: none;
     list-style: none;
-    font-size: .95rem;
+    font-size: .8rem;
     font-weight: bold;
      transition: 0.5s ease-in-out;
      color: #83888f;
+     
      
 
 `
