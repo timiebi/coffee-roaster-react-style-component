@@ -1,4 +1,4 @@
-import React,{useState, useContext} from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components';
 import arrowicon from '../../resources/plan/desktop/icon-arrow.svg';
 import { 
@@ -10,6 +10,7 @@ import {
  } 
  from '../../context/createplan';
  import { CreateMyPlan } from '../util/interaction/creaateplanbutton';
+ import { Modal } from '../modals';
 
 
 //  style
@@ -31,6 +32,10 @@ export const SelectCoffee = ({type})=>{
     const [preferenceOption, setPreferenceOption] = useState("");
     const [howOftenOption, setHowOftenOption] = useState("");
 
+
+    // hook for the modal and the toggle function
+    const [isOpen, setIsOpen] = useState(false);
+    const modalOpen = () => setIsOpen(true)
     // functions to set the value selected from the options to summary section 
     const capsuleRadioValue = e => setTypeOfCoffeeValue(e.target.value); 
     const typeOfCoffeeSelected = e => setSelectedOption(e.target.value);
@@ -48,214 +53,232 @@ export const SelectCoffee = ({type})=>{
 
     // form 
     const submit = e =>{
-        e.preventDefault()
+        e.preventDefault();
+        
     }
 
 
     return(
-        <FORM onSubmit={submit} >
-            {Preference.map(list =>(
-                <>
-                    <SELECTCOFFEECONTAINER onClick={click} className={active ? "activeClass" : ""} >
-                            <H1>{list.preference}</H1>
-                            <IMG src={arrowicon} className={active ? "arrowup": ""} />
-                    </SELECTCOFFEECONTAINER>
-                    <SELECTCOFFEESECTION>
-                        {list.preferenceOption.map(options =>(
-                            <>
-                                {
-                                active &&(
-                                    <SELECTRADIO>
-                                            <RADIO 
-                                            className='radio' 
-                                            id={options.id} name='plan' 
-                                            value={options.preferenceHeader} 
-                                            onClick={capsuleRadioValue}
-                                            // onChange={capsuleRadioValue}
-                                            
-                                            />
-                                            <LABEL htmlFor={options.id} className='label'>
-                                                <H2>{options.preferenceHeader}</H2>
-                                                <P>{options.preferenceInfo}</P>
-                                            </LABEL>
-                                    </SELECTRADIO>
-                                )
-                            }
-                            </>
-                        ))}
-                    </SELECTCOFFEESECTION>
-                    
-                </>
-            ))}
-            {Option.map(list =>(
-                <>
-                    <SELECTCOFFEECONTAINER onClick={click2} className={active2 ? "activeClass" : ""} >
-                            <H1>{list.option}</H1>
-                            <IMG src={arrowicon} className={active2 ? "arrowup": ""} />
-                    </SELECTCOFFEECONTAINER>
-                    <SELECTCOFFEESECTION>
-                        {list.options.map(options =>(
-                            <>
-                                {
-                                active2 &&(
-                                    <SELECTRADIO>
-                                            <RADIO 
-                                            className='radio' 
-                                            id={options.id} name='plan' 
-                                            value={options.optionheader} 
-                                            onClick={typeOfCoffeeSelected}
-                                            // onChange={capsuleRadioValue} 
-                                            />
-                                            <LABEL htmlFor={options.id} className='label'>
-                                                <H2>{options.optionheader}</H2>
-                                                <P>{options.optionInfo}</P>
-                                            </LABEL>
-                                    </SELECTRADIO>
-                                )
-                            }
-                            </>
-                        ))}
-                    </SELECTCOFFEESECTION>
-                    
-                </>
-            ))}
-            {Amount.map(list =>(
-                <>
-                    <SELECTCOFFEECONTAINER 
-                    onClick={click3} 
-                    className={active3 ? "activeClass" : ""} 
-                    >
-                        <H1>{list.amount}</H1>
-                        <IMG 
-                        src={arrowicon} 
-                        className={active3 ? "arrowup": ""} 
-                        />
-                    </SELECTCOFFEECONTAINER>
-                    <SELECTCOFFEESECTION>
-                        {list.prices.map(options =>(
-                            <>
-                                {
-                                active3 &&(
-                                    <SELECTRADIO>
-                                            <RADIO
-                                              className='radio' 
-                                              id={options.id} 
-                                              name='plan' 
-                                              value={options.weight} 
-                                              onClick={prizesSelected}
-                                             />
-                                            <LABEL htmlFor={options.id} className='label'>
-                                                <H2>{options.weight}</H2>
-                                                <P>{options.content}</P>
-                                            </LABEL>
-                                    </SELECTRADIO>
-                                )
-                            }
-                            </>
-                        ))}
-                    </SELECTCOFFEESECTION>
-                    
-                </>
-            ))}
-            {How.map(list =>(
-                <>
-                    <SELECTCOFFEECONTAINER onClick={click4} className={active4 ? "activeClass" : ""} >
-                            <H1>{list.how}</H1>
-                            <IMG src={arrowicon} className={active4 ? "arrowup": ""} />
-                    </SELECTCOFFEECONTAINER>
-                    <SELECTCOFFEESECTION>
-                        {list.type.map(options =>(
-                            <>
-                                {
-                                active4 &&(
-                                    <SELECTRADIO>
-                                            <RADIO
-                                            className='radio' 
-                                            id={options.id} 
-                                            name='plan' 
-                                            value={options.typeheader} 
-                                            onClick={preferenceChosen}  
-                                            />
-                                            <LABEL htmlFor={options.id} className='label'>
-                                                <H2>{options.typeheader}</H2>
-                                                <P>{options.typeInfo}</P>
-                                            </LABEL>
-                                    </SELECTRADIO>
-                                )
-                            }
-                            </>
-                        ))}
-                    </SELECTCOFFEESECTION>
-                    
-                </>
-            ))}
-            {Consistency.map(list =>(
-                <>
-                    <SELECTCOFFEECONTAINER onClick={click5} className={active5 ? "activeClass" : ""} >
-                            <H1>{list.consistency}</H1>
-                            <IMG src={arrowicon} className={active5? "arrowup": ""} />
-                    </SELECTCOFFEECONTAINER>
-                    <SELECTCOFFEESECTION>
-                        {list.howOften.map(options =>(
-                            <>
-                                {
-                                active5 &&(
-                                    <SELECTRADIO>
-                                            <RADIO 
-                                            className='radio' 
-                                            id={options.id} 
-                                            name='plan' 
-                                            value={options.howOftenheader} 
-                                            onClick={howOftenShouldBeDelivered} 
-                                            />
-                                            <LABEL htmlFor={options.id} className='label'>
-                                                <H2>{options.howOftenheader}</H2>
-                                                <P>{options.howOftenInfo}</P>
-                                            </LABEL>
-                                    </SELECTRADIO>
-                                )
-                            } 
-                            </>
-                        ))}
-                    </SELECTCOFFEESECTION>
-                    
-                </>
-            ))}
-            <ORDERSUMMARY>
-            <H3>
-                order summary
-            </H3>
-            <ORDERSUMMARCONTAINER>
-                <CHOICEP>
-                “I drink my coffee 
-                <INTRO> as</INTRO>
-                <INTROPREFERENCE> {!typeOfCoffeeValue ? "_____": `${typeOfCoffeeValue}`} </INTROPREFERENCE>, 
-                    with  a 
-                <BEANTYPE> {!selectedOption ? "_____": `${selectedOption}`} </BEANTYPE> 
-                    type of bean. 
-                <AMOUNT> {!amounts ? "_____": `${amounts}`} </AMOUNT>
-                <GRIND> ground ala</GRIND>
-                <OPTION> {!preferenceOption ? "_____": `${preferenceOption}`} </OPTION>, sent to me 
-                <DELIVERY> {!howOftenOption ? "_____": `${howOftenOption}`} </DELIVERY>.”
-                </CHOICEP>
-            </ORDERSUMMARCONTAINER>
-            </ORDERSUMMARY>
-            <CreateMyPlan
-            type="submit"
-            disabled={
-                !typeOfCoffeeValue ||
-                !selectedOption    ||
-                !amounts           ||
-                !preferenceOption  ||
-                !howOftenOption
-            }
-            />
-        </FORM>
+        <>
+            <FORM onSubmit={submit} >
+                {Preference.map(list =>(
+                    <DIV key={list.id}>
+                        <SELECTCOFFEECONTAINER onClick={click} className={active ? "activeClass" : ""} >
+                                <H1>{list.preference}</H1>
+                                <IMG src={arrowicon} className={active ? "arrowup": ""} />
+                        </SELECTCOFFEECONTAINER>
+                        <SELECTCOFFEESECTION>
+                            {list.preferenceOption.map(options =>(
+                                <DIV key={options.id}>
+                                    {
+                                    active &&(
+                                        <SELECTRADIO >
+                                                <RADIO 
+                                                className='radio' 
+                                                id={options.id} name='plan' 
+                                                value={options.preferenceHeader} 
+                                                onClick={capsuleRadioValue}
+                                                // onChange={capsuleRadioValue}
+                                                
+                                                />
+                                                <LABEL htmlFor={options.id} className='label'>
+                                                    <H2>{options.preferenceHeader}</H2>
+                                                    <P>{options.preferenceInfo}</P>
+                                                </LABEL>
+                                        </SELECTRADIO>
+                                    )
+                                }
+                                </DIV>
+                            ))}
+                        </SELECTCOFFEESECTION>
+                        
+                    </DIV>
+                ))}
+                {Option.map(list =>(
+                    <DIV key={list.id}>
+                        <SELECTCOFFEECONTAINER onClick={click2} className={active2 ? "activeClass" : ""} >
+                                <H1>{list.option}</H1>
+                                <IMG src={arrowicon} className={active2 ? "arrowup": ""} />
+                        </SELECTCOFFEECONTAINER>
+                        <SELECTCOFFEESECTION>
+                            {list.options.map(options =>(
+                                <DIV key={options.id}>
+                                    {
+                                    active2 &&(
+                                        <SELECTRADIO>
+                                                <RADIO 
+                                                className='radio' 
+                                                id={options.id} name='option' 
+                                                value={options.optionheader} 
+                                                onClick={typeOfCoffeeSelected}
+                                                // onChange={capsuleRadioValue} 
+                                                />
+                                                <LABEL htmlFor={options.id} className='label'>
+                                                    <H2>{options.optionheader}</H2>
+                                                    <P>{options.optionInfo}</P>
+                                                </LABEL>
+                                        </SELECTRADIO>
+                                    )
+                                }
+                                </DIV>
+                            ))}
+                        </SELECTCOFFEESECTION>
+                        
+                    </DIV>
+                ))}
+                {Amount.map(list =>(
+                    <DIV key={list.id}>
+                        <SELECTCOFFEECONTAINER 
+                        onClick={click3} 
+                        className={active3 ? "activeClass" : ""} 
+                        >
+                            <H1>{list.amount}</H1>
+                            <IMG 
+                            src={arrowicon} 
+                            className={active3 ? "arrowup": ""} 
+                            />
+                        </SELECTCOFFEECONTAINER>
+                        <SELECTCOFFEESECTION>
+                            {list.prices.map(options =>(
+                                <DIV key={options.id}>
+                                    {
+                                    active3 &&(
+                                        <SELECTRADIO>
+                                                <RADIO
+                                                className='radio' 
+                                                id={options.id} 
+                                                name='weight' 
+                                                value={options.weight} 
+                                                onClick={prizesSelected}
+                                                />
+                                                <LABEL htmlFor={options.id} className='label'>
+                                                    <H2>{options.weight}</H2>
+                                                    <P>{options.content}</P>
+                                                </LABEL>
+                                        </SELECTRADIO>
+                                    )
+                                }
+                                </DIV>
+                            ))}
+                        </SELECTCOFFEESECTION>
+                        
+                    </DIV>
+                ))}
+                {How.map(list =>(
+                    <DIV key={list.id}>
+                        <SELECTCOFFEECONTAINER onClick={click4} className={active4 ? "activeClass" : ""} >
+                                <H1>{list.how}</H1>
+                                <IMG src={arrowicon} className={active4 ? "arrowup": ""} />
+                        </SELECTCOFFEECONTAINER>
+                        <SELECTCOFFEESECTION>
+                            {list.type.map(options =>(
+                                <DIV key={options.id}>
+                                    {
+                                    active4 &&(
+                                        <SELECTRADIO>
+                                                <RADIO
+                                                className='radio' 
+                                                id={options.id} 
+                                                name='type' 
+                                                value={options.typeheader} 
+                                                onClick={preferenceChosen}  
+                                                />
+                                                <LABEL htmlFor={options.id} className='label'>
+                                                    <H2>{options.typeheader}</H2>
+                                                    <P>{options.typeInfo}</P>
+                                                </LABEL>
+                                        </SELECTRADIO>
+                                    )
+                                }
+                                </DIV>
+                            ))}
+                        </SELECTCOFFEESECTION>
+                        
+                    </DIV>
+                ))}
+                {Consistency.map(list =>(
+                    <DIV key={list.id}>
+                        <SELECTCOFFEECONTAINER onClick={click5} className={active5 ? "activeClass" : ""} >
+                                <H1>{list.consistency}</H1>
+                                <IMG src={arrowicon} className={active5? "arrowup": ""} />
+                        </SELECTCOFFEECONTAINER>
+                        <SELECTCOFFEESECTION>
+                            {list.howOften.map(options =>(
+                                <DIV key={options.id}>
+                                    {
+                                    active5 &&(
+                                        <SELECTRADIO>
+                                                <RADIO 
+                                                className='radio' 
+                                                id={options.id} 
+                                                name='often' 
+                                                value={options.howOftenheader} 
+                                                onClick={howOftenShouldBeDelivered} 
+                                                />
+                                                <LABEL htmlFor={options.id} className='label'>
+                                                    <H2>{options.howOftenheader}</H2>
+                                                    <P>{options.howOftenInfo}</P>
+                                                </LABEL>
+                                        </SELECTRADIO>
+                                    )
+                                } 
+                                </DIV>
+                            ))}
+                        </SELECTCOFFEESECTION>
+                        
+                    </DIV>
+                ))}
+                <ORDERSUMMARY>
+                <H3>
+                    order summary
+                </H3>
+                <ORDERSUMMARCONTAINER>
+                    <CHOICEP>
+                    “I drink my coffee 
+                    <INTRO> as</INTRO>
+                    <INTROPREFERENCE> {!typeOfCoffeeValue ? "_____": `${typeOfCoffeeValue}`} </INTROPREFERENCE>, 
+                        with  a 
+                    <BEANTYPE> {!selectedOption ? "_____": `${selectedOption}`} </BEANTYPE> 
+                        type of bean. 
+                    <AMOUNT> {!amounts ? "_____": `${amounts}`} </AMOUNT>
+                    <GRIND> ground ala</GRIND>
+                    <OPTION> {!preferenceOption ? "_____": `${preferenceOption}`} </OPTION>, sent to me 
+                    <DELIVERY> {!howOftenOption ? "_____": `${howOftenOption}`} </DELIVERY>.”
+                    </CHOICEP>
+                </ORDERSUMMARCONTAINER>
+                </ORDERSUMMARY>
+                <BUTTONCONTAINER onClick ={modalOpen} >
+                    <CreateMyPlan
+                    className="submitplan_button"
+                    type="submit"
+                    disabled={
+                        !typeOfCoffeeValue ||
+                        !selectedOption    ||
+                        !amounts           ||
+                        !preferenceOption  ||
+                        !howOftenOption
+                    }
+                    />
+                </BUTTONCONTAINER>
+            </FORM>
+            {isOpen && (<Modal 
+            setIsOpen={setIsOpen}
+            typeOfCoffeeValue ={typeOfCoffeeValue}
+            selectedOption = {selectedOption}
+            amounts = {amounts}
+            preferenceOption = {preferenceOption}
+            howOftenOption = {howOftenOption}
+            />)}
+        </>
     )
 }
 
 
 export const FORM = styled.form`
+    
+`
+
+export const DIV = styled.div`
     
 `
 export const SELECTCOFFEESECTION = styled.div`
@@ -418,3 +441,12 @@ export const INTRO = styled.span`
 `
 
 
+export const BUTTONCONTAINER = styled.div`
+.submitplan_button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        margin-bottom: 4em;
+    }
+`

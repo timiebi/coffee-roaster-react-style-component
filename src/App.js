@@ -1,4 +1,4 @@
-import {Routes,  Route, Link } from 'react-router-dom';
+import {Routes,  Route} from 'react-router-dom';
 
 
 // components
@@ -10,7 +10,6 @@ import { Plan } from './views/createplan';
 
 // context
 import { AboutProvider } from './context';
-import { CreatePlanProvider } from './context/createplan';
 
 
 // import { NavlistDataProvider } from './components/navData/NavlistContext';

@@ -1,5 +1,3 @@
-import React from "react"
-
 
 
 export const Preference = [{
@@ -93,7 +91,7 @@ export const Consistency = [{
         howOftenInfo: "Select quantity to view price. Includes free first-class shipping.",
     },{
         id: 19,
-        howOftenheader: "Every 2 weeks",
+        howOftenheader: "Every2weeks",
         howOftenInfo: "Select quantity to view price. Includes free priority shipping.",
     },
     {

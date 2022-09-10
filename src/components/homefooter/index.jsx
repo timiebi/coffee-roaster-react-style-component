@@ -53,7 +53,10 @@ export const HomeFooter = ()=>{
 
 export const HOMEFOOTER = styled.div`
     transition: all .5s ease-in-out;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
 `
 
 export const HFCONTAINER = styled.div`
@@ -63,17 +66,14 @@ export const HFCONTAINER = styled.div`
      background: #2C343E;
      padding: 3em 4em 4em;
      width: 90%;
-     margin-left: 1.2em;
      margin-bottom: 4em;
      transition: all .5s ease-in-out;
 
      @media(min-width: 773px){
-        margin-left: 2.6em;
         transition: all .5s ease-in-out;
      }
 
      @media(min-width: 1020px){
-        margin-left: 4em;
         padding: 1em;
         width: 88%;
      }

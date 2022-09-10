@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState} from "react";
 import { ImageStr } from "../util/image";
 
 export const Nav = ({logophoto, togglebtn, Name, logo, xtoggle})=>{
@@ -15,6 +15,9 @@ export const Nav = ({logophoto, togglebtn, Name, logo, xtoggle})=>{
         if(setToggle(!toggle)){
             return setToggle(toggle)
         }
+    }
+    const scrollToTop = () => {
+        window.scrollTo(0, 0)
     }
  
     
@@ -38,17 +41,17 @@ export const Nav = ({logophoto, togglebtn, Name, logo, xtoggle})=>{
                 </LOGOHAMBURGER>
                 {toggle &&(  <NAVCONTENT>
                         <UL>
-                        <NavLink to= "/" className="link">
+                        <NavLink to= "/" className="link" onClick={scrollToTop} >
                             <LI onClick={Handclick}>
                                 Home
                             </LI>
                         </NavLink>
-                        <NavLink to="about" className="link">
+                        <NavLink to="about" className="link" onClick={scrollToTop} >
                             <LI onClick={Handclick}>
                                 About Us
                             </LI>
                         </NavLink>
-                        <NavLink to="plan" className="link">
+                        <NavLink to="plan" className="link" onClick={scrollToTop} >
                             <LI onClick={Handclick}>
                                 Create your own plan
                             </LI>
@@ -58,17 +61,17 @@ export const Nav = ({logophoto, togglebtn, Name, logo, xtoggle})=>{
                     )}
                 <NAVCONTENT2>
                     <ULDSKTP>
-                        <NavLink to="/" className="link">
+                        <NavLink to="/" className="link" onClick={scrollToTop} >
                             <DESKLIST>
                                 Home
                             </DESKLIST>
                         </NavLink>
-                        <NavLink to="about" className="link">
+                        <NavLink to="about" className="link" onClick={scrollToTop} >
                             <DESKLIST>
                                 About Us
                             </DESKLIST>
                         </NavLink>
-                        <NavLink to="plan" className="link">
+                        <NavLink to="plan" className="link" onClick={scrollToTop} >
                             <DESKLIST>
                                 Create your own plan
                             </DESKLIST>
@@ -86,8 +89,6 @@ export const Nav = ({logophoto, togglebtn, Name, logo, xtoggle})=>{
 // nav styles 
 
 export const NAVCONTAINER = styled.div`
-/* background: #999494; */
- /* border: 2px solid red; */
         width: 100%;
         background-color: #fff;
         position: fixed;
@@ -104,7 +105,6 @@ export const NAVCONTAINER = styled.div`
         position: fixed;
         z-index: 100;
         top: 0;
-        /* border: 2px solid red; */
         padding: .5em;
         transition: 0.5s ease-in-out;
     }
@@ -119,7 +119,6 @@ export const NAVCONTENT = styled.div`
     left: 0;
     z-index: 3;
     background-image: linear-gradient(rgb(255,255,255, 1), rgb(255,255,255,0.85));
-    /* border: 2px solid red; */
     width: 100%;
     transition: 0.5s ease-in-out;
 

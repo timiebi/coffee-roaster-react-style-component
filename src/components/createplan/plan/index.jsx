@@ -1,4 +1,4 @@
-import React,{useState, useContext} from "react";
+import React,{ useContext} from "react";
 import { aboutContext } from "../../../context";
 import styled from "styled-components";
 import planImagemobile from "../../../resources/plan/mobile/image-hero-blackcup.jpg";
@@ -7,12 +7,12 @@ import planimgDesktop from "../../../resources/plan/desktop/image-hero-blackcup.
 
 
 export const CreatePlan = ()=>{
-    const [about, setAbout] = useContext(aboutContext);
+    const [about] = useContext(aboutContext);
     return(
         <> 
             <CREATEPLANSECTION>
                 {about.map(plan =>(
-                <CREATEPLANCONTENT>
+                <CREATEPLANCONTENT key={plan.id} >
                     <CREATEPLANHEADER>
                         {plan.createheader}
                     </CREATEPLANHEADER>
