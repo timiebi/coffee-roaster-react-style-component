@@ -12,7 +12,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export const Quality = ()=>{
-    const [about, setAbout] = useContext(aboutContext)
+    const [about] = useContext(aboutContext)
 
      // initialize aos animation
      useEffect(() => {

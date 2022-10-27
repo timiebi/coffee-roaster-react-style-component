@@ -1,11 +1,10 @@
-import React, {useState, useContext} from "react";
+import React, { useContext} from "react";
 import styled from "styled-components";
 import { aboutContext } from "../../../context";
-import svgg from '../../../resources/about/desktop/illustration-uk.svg';
 
 
 export const Headquarters = ()=>{
-    const [about, setAbout] = useContext(aboutContext);
+    const [about] = useContext(aboutContext);
     return(
         <>
            {about.map(about=>(

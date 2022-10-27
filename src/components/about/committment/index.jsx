@@ -16,7 +16,7 @@ import "aos/dist/aos.css";
 
 export const Commitment = ()=>{
 
-    const [about, setAbout] = useContext(aboutContext);
+    const [about] = useContext(aboutContext);
 
 
 

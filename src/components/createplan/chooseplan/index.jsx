@@ -1,11 +1,13 @@
-import React,{useState, useContext} from "react";
+import React,{ useContext} from "react";
 import styled from "styled-components";
-import { aboutContext } from "../../../context";
-import planImage from "../../../resources/plan/mobile/bg-order-summary.png";
-import planImage1 from "../../../resources/plan/mobile/bg-steps.png";
+
+
+
+
+
 
 export const ChoosePlan = ()=>{
-    const [about, setAbout] = useContext(aboutContext);
+    // const [about] = useContext(aboutContext);
     return(
         <>
               <HOWITWORKS>

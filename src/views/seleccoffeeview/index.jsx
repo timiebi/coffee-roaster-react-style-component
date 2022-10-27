@@ -1,5 +1,5 @@
 import { SelectCoffee } from "../../components/selectcoffee";
-import { CoffeAside } from "./selectcoffeaside";
+// import { CoffeAside } from "./selectcoffeaside";
 import styled from "styled-components";
 
 export const CoffeeView =()=>{

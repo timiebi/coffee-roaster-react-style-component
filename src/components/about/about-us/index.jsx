@@ -10,7 +10,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export const AboutUs = ()=>{
-    const [about, setAbout] = useContext(aboutContext);
+    const [about] = useContext(aboutContext);
 
 
      // initialize aos animation
